@@ -24,8 +24,7 @@ export const Index = () => {
             .then((res) => {
                 if (res.status === 201) {
                     toast.success('Data Send Successfully');
-                    console.log(res);
-                    window.location.reload(false);     
+                    console.log(res);     
                 }
                 else {
                     toast.error('Data Send Successfully');
@@ -40,14 +39,13 @@ export const Index = () => {
     const getAllData = () => {
         axios.get("http://localhost:3004/to-do")
             .then((res) => {
-                console.log(res.data);
                 setData(res.data);
             });
     }
 
     useEffect(() => {
         getAllData();
-    }, [])
+    }, [data])
 
     const deleteRecord = (id) => {
 
